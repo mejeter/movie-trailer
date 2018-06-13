@@ -14,7 +14,7 @@ The `media.py` file defines the class Movie and its instance variables. The `ent
 
 #### Documentation
 1. Install the [Python](https://www.python.org/) program.
-2. Fork the GitHub [repository](https://github.com/mejeter/ud036_StarterCode.git).
+2. Fork the GitHub [repository](https://github.com/mejeter/movie-trailer.git).
 3. [Install](https://git-scm.com/downloads) and [set up](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) Git.
 4. Change to desired directory in Git Bash and type `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 5. Open the saved repository and open the `entertainment.py` file in web browser.
