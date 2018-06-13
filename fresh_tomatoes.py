@@ -36,11 +36,12 @@ main_page_head = '''
             height: 100%;
         }
         .movie-tile {
-            margin-bottom: 20px;
-            padding-top: 20px;
+            margin-bottom: 19px;
+            padding-top: 19px;
+            min-width: 250px;
         }
         .movie-tile:hover {
-            background-color: #EEE;
+            background-color: #C0C0C0;
             cursor: pointer;
         }
         .scale-media {
@@ -54,14 +55,48 @@ main_page_head = '''
             width: 100%;
             left: 0;
             top: 0;
-            background-color: white;
+            background-color: #EEEEEE;
+        }
+        /*
+        Create a container for the movie storyline to overlay on movie
+        poster upon hovering
+        */
+        .movie_storyline_container {
+            position: relative;
+            width: 50%;
+            max-width: 230px;
+            min-width: 210px;
+            margin: 0 auto;
+        }
+        .image {
+            display: block;
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #EEEEEE;
+            width: 100%;
+            max-width: 210px;
+            transition: 0.5s ease;
+            opacity: 0;
+            font-size: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+        .movie_storyline_container:hover .overlay {
+            opacity: 1;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-            // Remove the src so the player itself gets removed, as this is the only
-            // reliable way to ensure the video stops playing in IE
+            // Remove the src so the player itself gets removed, as this is the
+            // only reliable way to ensure the video stops playing in IE
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
@@ -123,8 +158,11 @@ main_page_content = '''
 # A single movie entry html template
 movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
+    <div class="movie_storyline_container">
+        <img src="{poster_image_url}" width="210" height="325" class="image">
+        <div class="overlay">{movie_storyline}</div>
+    </div>
+    <h3>{movie_title}</h3>
 </div>
 '''
 
@@ -145,7 +183,8 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
+            trailer_youtube_id=trailer_youtube_id,
+            movie_storyline=movie.storyline
         )
     return content
 
