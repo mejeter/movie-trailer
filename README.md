@@ -23,6 +23,7 @@ The `media.py` file defines the class Movie and its instance variables. The `ent
 The Unlicense. This is public domain.
 
 #### Acknowledgements
-* The `fresh_tomatoes.py` file was provided by Udacity in their `ud036_StarterCode` GitHub repository.
+* The `fresh_tomatoes.py` file was provided by Udacity in their `ud036_StarterCode` GitHub [repository](https://github.com/udacity/ud036_StarterCode).
+* The functionality for the hover overlay came from a [W3Schools](https://www.w3schools.com/howto/howto_css_image_overlay_title.asp) tutorial.
 * The poster images are fair use from Wikipedia, hosted on Wikimedia Foundation servers.
 * The trailers are shown under the Standard YouTube License.
